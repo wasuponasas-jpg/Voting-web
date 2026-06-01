@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เว็บเลือกตั้ง</title>
+    <link rel="icon" type="image/x-icon" href="icon web.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Header for Admin -->
+    <div class="nav-header">
+        <button id="admin-btn" onclick="showLogin()" class="btn-secondary admin-top-btn">Login ดูคะแนน</button>
+    </div>
+
+    <!-- Voting Section (Public) -->
+    <div id="voting-section" class="container">
+        <h1>ลงคะแนนเสียงของคุณ</h1>
+        <p>เลือกผู้สมัครที่คุณชื่นชอบ</p>
+        
+        <div class="candidate-cards">
+            <!-- ผู้สมัคร 1 -->
+            <div class="card">
+                <div class="img-container">
+                    <img src="ตังทอง.jpg" alt="Candidate A">
+                </div>
+                <h3>ผู้สมัคร 1</h3>
+                <button onclick="vote('A')" class="btn-a">โหวต 1</button>
+            </div>
+
+            <!-- ผู้สมัคร 2 -->
+            <div class="card">
+                <div class="img-container">
+                    <img src="อุ๋งๆ.jpg" alt="Candidate B">
+                </div>
+                <h3>ผู้สมัคร 2</h3>
+                <button onclick="vote('B')" class="btn-b">โหวต 2</button>
+            </div>
+        </div>
+
+        <p id="vote-status" class="status-msg"></p>
+    </div>
+
+    <!-- Login Section (For Viewing Scores) -->
+    <div id="login-section" class="container" style="display: none;">
+        <h1>Admin Login</h1>
+        <p>Enter password to view live results</p>
+        <form id="login-form">
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Unlock Scores</button>
+            <button type="button" onclick="hideLogin()" class="btn-cancel">Back</button>
+        </form>
+        <p id="login-error" class="error" style="display: none;">Invalid password.</p>
+    </div>
+
+    <!-- Scores Section (Protected) -->
+    <div id="scores-section" class="container" style="display: none;">
+        <h1>ผลการเลือก ครั้งนี้</h1>
+        <div class="score-board">
+            <div class="candidate-result">
+                <img src="ตังทอง.jpg" class="mini-img" alt="A">
+                <span class="name">ผู้สมัคร 1</span>
+                <span id="score-a" class="score">0</span>
+            </div>
+            <div class="candidate-result">
+                <img src="อุ๋งๆ.jpg" class="mini-img" alt="B">
+                <span class="name">ผู้สมัคร 2</span>
+                <span id="score-b" class="score">0</span>
+            </div>
+        </div>
+        <button onclick="logout()" class="btn-logout">Logout / Hide Scores</button>
+    </div>
+
+    <script src="javascript.js"></script>
+</body>
+</html>
